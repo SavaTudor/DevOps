@@ -1,18 +1,15 @@
 from domain.DriverLicense import DriverLicense
 from repository.DriverLicenseRepository import DriverLicenseRepository
+from business.DriverLicenseService import DriverLicenseService
+from src.presentation.CommandLineInterface import CommandLineInterface
+from util.Utils import Utils
 
 
 class Main:
-    @staticmethod
-    def print(string):
-        print("Hello " + string + "!\n")
-        driver = DriverLicense(1, "Tudor", "Sava", "B", "29-09-2019", "28-09-2029", False)
-        print(driver)
-
-
-if __name__ == "__main__":
-    # Main.print("Tudor")
-    repo = DriverLicenseRepository()
-    DriverLicenseRepository.read_with_length(repo, 10)
+    if __name__ == "__main__":
+        repo = DriverLicenseRepository()
+        service = DriverLicenseService(repo)
+        interface = CommandLineInterface(service)
+        interface.start()
 
 
