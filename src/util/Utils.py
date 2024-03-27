@@ -1,10 +1,7 @@
 import pathlib
-import platform
-
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
-import xlsxwriter
 
 
 class Utils:
